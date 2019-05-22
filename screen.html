@@ -1,0 +1,483 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style> 
+#myDIV {
+  width: 1345px;
+  height: 500px;
+  background-color:white;
+  display: none;
+  border: 3px solid lightblue;
+}
+#job{
+                height: 30px;
+                width:100%;
+                border-radius: 4px;
+                text-align:left;
+                padding-left:20px;
+				background-color:white;
+                color:#d06617;
+            }
+            #rotate{
+                position:absolute;
+                margin-top:-17px;
+                padding-left:10px;
+                color:#d06617;
+            }
+            #down{
+                position:absolute;
+                margin-top:-26px;
+                padding-left:10px;
+                color:#d06617;
+                display: none;
+
+            }
+            table  {
+            border-collapse: collapse;
+            width: 95%;
+			
+           margin-left:36px;
+            margin-top:15px;
+			margin-right:15px;
+            border: 4px solid #dddddd;
+            background-color: white;
+            
+        }
+    body{
+            font-family: 'Lato', sans-serif;
+
+        }
+td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+tr:nth-child(even) {
+            background-color:#ECF0F1;
+        }
+#input{
+             margin-left: 10px;
+        }
+#select1{
+            width: 400px;
+            height: 35px;
+            padding-left: 5px;
+            border-color: #058cd8;
+        }
+#select2{
+             width: 250px;
+             height: 30px;
+             border-color: #058cd8;
+
+        }
+		#select3{
+            width: 400px;
+            height: 35px;
+            padding-left: 5px;
+            border-color: #058cd8;
+        }
+		#select4	{
+            width: 400px;
+            height: 35px;
+            padding-left: 5px;
+            border-color: #058cd8;
+        }
+#textarea{
+            padding: 10px;
+            resize: none;
+            border-color: #058cd8;
+        }
+#loc{
+    margin-top:20px;
+    height:35px;
+    width:395px;
+    padding-left: 5px;
+    border: 1px solid #058cd8;
+
+}
+#business-name{
+    height:35px;
+    width:395px;
+    padding-left: 5px;
+    border: 1px solid #058cd8;
+
+}
+#vac{
+    margin-top:20px;
+    height:30px;
+    width:245px;
+    padding-left: 5px;
+    border: 1px solid #058cd8;
+}
+#date{
+    height:30px;
+    width:390px;
+    padding-left: 5px;
+    border: 1px solid #058cd8;
+}
+#calender{
+    position:absolute;
+    left:436px;
+    size:30px;
+    color:red;
+    margin-top: 8px;
+    
+    
+}
+#calender2{
+    position:absolute;
+    left:897px;
+    size:30px;
+    color:red;
+    margin-top: 8px;
+    
+}
+.button1{
+    height: 25px;
+    background-color:#009688;
+    border:1px solid:#009688;
+    color:white;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    border-color: #058cd8;
+
+}
+#but{
+    height:20px;
+}
+.but-save{
+    height:30px;
+    width:95px;
+    color:white;
+    background-color:#058cd8;
+    border-radius:4px;
+}
+.but-reset{
+    height:30px;
+    width:95px;
+   background-color:#ed5d67;
+    border-radius:4px;
+    color:white;
+}
+#save{
+    position:absolute;
+    margin-top:6px;
+    color:white;
+    left:167px;
+
+}
+#reset{
+    position:absolute;
+    margin-top:6px;
+    color:white;
+    left:69px;
+}
+#ex1{
+    color:red;
+	
+	visibility:hidden;
+}
+#ex2{
+    color:red;
+	visibility:hidden;
+	
+}
+#ex3{
+    color:red;
+	visibility:hidden;
+}
+#ex4{
+    color:red;
+	visibility:hidden;
+}
+#ex5{
+    position:absolute;
+    margin-top:8px;
+    margin-left:5px;
+     color:red;
+	 visibility:hidden;
+}
+#ex6{
+    color:red;
+	visibility:hidden;
+}
+#ex7{
+    color:red;
+	visibility:hidden;
+}
+#ex8{
+    color:red;
+	visibility:hidden;
+}
+#ex9{
+    position: absolute;
+    margin-top:8px;
+    margin-left:18px; 
+    color:red;
+	visibility:hidden;
+}
+#ex10{
+    position: absolute;
+    margin-top:8px;
+    margin-left:18px; 
+    color:red;
+	visibility:hidden;
+}
+
+input[type="date"] {
+  position: relative;
+  
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  color: transparent;
+  background: none;
+  z-index: 1;
+}
+input[type=date]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    display: none;
+}
+input[type="date"]:before {
+  color: transparent;
+  background: none;
+  display: block;
+  font-family: 'FontAwesome';
+  content: '\f073';
+  /* This is the calendar icon in FontAwesome */
+	position: absolute;
+	right: 6px;
+	color: red;
+}	
+
+
+		
+</style>
+</head>
+<body>
+
+
+Create Job Description<br>
+<input type="button" name="job"  id="job" value=" Job Details" onclick="myFunction()"></input>
+<i class="fa fa-sort-down" id="down"></i>
+<i class="fa fa-sort-down fa-rotate-270"  id="rotate"></i>
+
+<div id="myDIV"><br>
+<form action="form_control.php" name="myForm" id="form-id"  method="POST" >
+<table>
+ 
+  
+   <TR>
+       <td> 
+           <label><i>Bussiness name</i></label><br>
+           <input id="business-name" name="business-name">
+            <i class="fa fa-exclamation" id="ex1"></i>
+        </td>
+        <td> 
+                <label><i>Sub bussiness type</i></label><br>
+                <select id="select1" name="sub-business-type">
+                     <option value=""disabled selected></option>
+                     <option value="geheral">General</option>
+                     <option value="limited">Limited</option>
+                     <option value="limited-liability">Limited Liability</option>
+                   </select>
+                   <i class="fa fa-exclamation" id="ex2"></i>
+        </td>
+        <td width="24%"> 
+                    <label><i>Department</i></label><br>
+                    <select id="select2" name="department">
+                         <option value="default"disabled selected>Select from list</option>
+                         <option value="R & D">R & D</option>
+                         <option value="Human Resource Management">Human Resource management</option>
+                         <option value="Accounting and Finance">Accounting and Finance</option>
+                       </select>
+                       <i class="fa fa-exclamation" id="ex3"></i>
+        </td>
+    </TR>
+    <tr>
+       <td colspan="3" id="but">
+           <button class="button1" onclick="myFun1()" type="button" >+ Job role</button>
+       </td>
+
+    </tr>
+    <tr>
+        <td> <label><i>Job type</i></label><br>
+            <select id="select3" name="job-type">
+                 <option value="default" disabled selected>Select from list</option>
+                 <option value="Financial Analyst">Financial Analyst</option>
+                 <option value="Marketing Co-ordinator">Marketing Co-ordinator</option>
+                 <option value="Sales Representative">Sales Representative</option>
+               </select>
+               <i class="fa fa-exclamation" id="ex4"></i>
+        </td>
+        <td colspan="2">
+ 
+            <textarea name="text" placeholder="Job Profile"  id="textarea" rows="4" cols="100"></textarea>
+            <i class="fa fa-exclamation" id="ex5"></i>
+        </td>
+    </tr>
+    <tr>
+       <td> <input type="text"  id="loc" placeholder="Location" name="location"> <i class="fa fa-exclamation" id="ex6"></i></td>
+
+       <td> 
+          <label><i>Shift</i></label> <br>
+            <select id="select4" name="shift">
+             <option value="default"disabled selected>Select from list</option>
+             <option value="Morning">Morning</option>
+             <option value="Mid-day">Mid-day</option>
+             <option value="Evening">Evening</option>
+			 <option value="Overnight">Overnight</option>
+           </select>
+           <i class="fa fa-exclamation" id="ex7"></i>
+       </td>
+       <td> 
+            <input type="text" name="vacancies" id="vac" placeholder="Vacancies Available"> <i class="fa fa-exclamation" id="ex8"></i>
+       </td>
+    </tr>
+    <tr>
+        <td>
+			<i>Expected Joining Date</i>
+            <input type="date" id="date" data-placeholder="Expected joining date" name="join" >
+			<!--<i  id="calender" class="fa fa-calendar"></i>-->
+            <i class="fa fa-exclamation" id="ex9"></i>
+        </td>
+        <td>
+			<i>Last Date For Applying</i>
+            <input type="date" id="date"  placeholder="18-09-2000" name="last">
+                <!--<i  id="calender2" class="fa fa-calendar"></i>-->
+                <i class="fa fa-exclamation" id="ex10"></i>
+            </td>
+            <td>
+
+            </td>
+
+    </tr>
+    <tr>
+            <td colspan="3">
+                    <button class="but-reset" type="button" onclick="resetForm()"> Reset</button>
+                    <i class="fa fa-trash" id="reset"></i>
+                     <button class="but-save" type="button" onclick="saveForm()"> Save</button>
+                     <i class="fa fa-floppy-o" id="save" ></i>
+                </td>
+    </tr>
+
+  
+</table>
+</form>
+</div>
+
+
+
+<script>
+function myFunction() {
+  var x = document.getElementById('myDIV');
+  var y = document.getElementById('down');
+  var z = document.getElementById('rotate');
+  if (x.style.display === 'block') {
+    x.style.display = 'none';
+    y.style.display = 'none';
+    z.style.display = 'block';
+  } else {
+    x.style.display = 'block';
+    z.style.display = 'none';
+    y.style.display = 'block';
+  }
+}
+function myFun1(){
+	alert("Functionality is under progress");
+}
+function resetForm(){
+	document.getElementById("form-id").reset();
+}
+function saveForm() {
+ var x = document.forms["myForm"]["business-name"].value;
+  if (x == "") {
+    //alert("Name must be filled out");
+	document.getElementById("ex1").style.visibility='visible';
+    return false;
+  }else{
+	document.getElementById("ex1").style.visibility='hidden';
+  }
+  var x = document.forms["myForm"]["sub-business-type"].value;
+  if (x == "") {
+    //alert("Name must be filled out");
+	document.getElementById("ex2").style.visibility='visible';
+    return false;
+  }else{
+	document.getElementById("ex2").style.visibility='hidden';
+  }
+  var x = document.forms["myForm"]["department"].value;
+  if (x == "default") {
+    //alert("Name must be filled out");
+	document.getElementById("ex3").style.visibility='visible';
+    return false;
+  }else{
+	document.getElementById("ex3").style.visibility='hidden';
+  }
+  var x = document.forms["myForm"]["job-type"].value;
+  if (x == "default") {
+    //alert("Name must be filled out");
+	document.getElementById("ex4").style.visibility='visible';
+    return false;
+  }else{
+	document.getElementById("ex4").style.visibility='hidden';
+  }
+  var x = document.forms["myForm"]["text"].value;
+  if (x == "") {
+    //alert("Name must be filled out");
+	document.getElementById("ex5").style.visibility='visible';
+    return false;
+  }else{
+	document.getElementById("ex5").style.visibility='hidden';
+}
+var x = document.forms["myForm"]["location"].value;
+  if (x == "") {
+    //alert("Name must be filled out");
+	document.getElementById("ex6").style.visibility='visible';
+    return false;
+  }else{
+	document.getElementById("ex6").style.visibility='hidden';
+  }
+  var x = document.forms["myForm"]["shift"].value;
+  if (x == "default") {
+    //alert("Name must be filled out");
+	document.getElementById("ex7").style.visibility='visible';
+    return false;
+  }else{
+	document.getElementById("ex7").style.visibility='hidden';
+  }
+  var x = document.forms["myForm"]["vacancies"].value;
+  if (x == "") {
+    //alert("Name must be filled out");
+	document.getElementById("ex8").style.visibility='visible';
+    return false;
+  }else{
+	document.getElementById("ex8").style.visibility='hidden';
+  }
+var x = document.forms["myForm"]["join"].value;
+  if (x == "") {
+    //alert("Name must be filled out");
+	document.getElementById("ex9").style.visibility='visible';
+    return false;
+  }else{
+	document.getElementById("ex9").style.visibility='hidden';
+  }
+  var x = document.forms["myForm"]["last"].value;
+  if (x == "") {
+    //alert("Name must be filled out");
+	document.getElementById("ex10").style.visibility='visible';
+    return false;
+  }else{
+	document.getElementById("ex10").style.visibility='hidden';
+  }
+  	document.getElementById("form-id").submit();
+
+  }
+
+</script>
+
+</body>
+</html>
