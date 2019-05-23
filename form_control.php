@@ -14,26 +14,25 @@
 	$servername = "localhost";
 	$username = "root";
 	$password = "";
-	$dbname="Job_Details";
 	
 	$conn=mysqli_connect('localhost','root','');
-	$query=mysqli_query($conn,'create database dbname1');
-	mysqli_query($conn,'use dbname1');
+	$query=mysqli_query($conn,'create database Job_Details');
+	mysqli_query($conn,'use job_details');
 	
-	$qu=mysqli_query($conn,'CREATE TABLE details( 
+	$qu=mysqli_query($conn,'CREATE TABLE IF NOT EXISTS details( 
         Business_type VARCHAR(30) ,
 		Sub_business_type VARCHAR(30) ,
 		Department VARCHAR(30),
 		Job_name VARCHAR(30),
         Text VARCHAR(30),
         Location VARCHAR(50),
-		Country VARCHAR(50),
+		Shift VARCHAR(50),
 		Vacancies VARCHAR(30),
 		Expectdate date,
 		Lastdate date		
         )');
 		
-	mysqli_query($conn,"INSERT INTO details (Business_type,Sub_business_type,Department,Job_name,Text,Location,Country,Vacancies,Expectdate,Lastdate) VALUES ('$business_type','$sub_business_type','$department','$job_name','$text','$location','$country','$vacancies','$expectdate','$lastdate')");
+	mysqli_query($conn,"INSERT INTO details (Business_type,Sub_business_type,Department,Job_name,Text,Location,Shift,Vacancies,Expectdate,Lastdate) VALUES ('$business_type','$sub_business_type','$department','$job_name','$text','$location','$country','$vacancies','$expectdate','$lastdate')");
 	header("Location:screen.html");
 	exit;
 	

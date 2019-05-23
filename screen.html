@@ -69,7 +69,7 @@ tr:nth-child(even) {
         }
 #select2{
              width: 250px;
-             height: 30px;
+             height: 35px;
              border-color: #058cd8;
 
         }
@@ -112,7 +112,13 @@ tr:nth-child(even) {
     padding-left: 5px;
     border: 1px solid #058cd8;
 }
-#date{
+#date1{
+    height:30px;
+    width:390px;
+    padding-left: 5px;
+    border: 1px solid #058cd8;
+}
+#date2{
     height:30px;
     width:390px;
     padding-left: 5px;
@@ -280,7 +286,7 @@ Create Job Description<br>
                 <label><i>Sub bussiness type</i></label><br>
                 <select id="select1" name="sub-business-type">
                      <option value=""disabled selected></option>
-                     <option value="geheral">General</option>
+                     <option value="general">General</option>
                      <option value="limited">Limited</option>
                      <option value="limited-liability">Limited Liability</option>
                    </select>
@@ -340,13 +346,13 @@ Create Job Description<br>
     <tr>
         <td>
 			<i>Expected Joining Date</i>
-            <input type="date" id="date" data-placeholder="Expected joining date" name="join" >
+            <input type="date" id="date1" data-placeholder="Expected joining date" name="join" >
 			<!--<i  id="calender" class="fa fa-calendar"></i>-->
             <i class="fa fa-exclamation" id="ex9"></i>
         </td>
         <td>
 			<i>Last Date For Applying</i>
-            <input type="date" id="date"  placeholder="18-09-2000" name="last">
+            <input type="date" id="date2"  placeholder="18-09-2000" name="last">
                 <!--<i  id="calender2" class="fa fa-calendar"></i>-->
                 <i class="fa fa-exclamation" id="ex10"></i>
             </td>
@@ -370,7 +376,7 @@ Create Job Description<br>
 </div>
 
 
-
+  <script type="text/javascript" src="jquery-3.4.1.min.js"></script>
 <script>
 function myFunction() {
   var x = document.getElementById('myDIV');
@@ -387,9 +393,122 @@ function myFunction() {
   }
 }
 function myFun1(){
-	alert("Functionality is under progress");
+
+var x = document.forms["myForm"]["business-name"].value;
+  if (x == "") {
+    //alert("Name must be filled out");
+	document.getElementById("ex1").style.visibility='visible';
+    return false;
+  }else{
+	document.getElementById("ex1").style.visibility='hidden';
+  }
+  var x = document.forms["myForm"]["sub-business-type"].value;
+  if (x == "") {
+    //alert("Name must be filled out");
+	document.getElementById("ex2").style.visibility='visible';
+    return false;
+  }else{
+	document.getElementById("ex2").style.visibility='hidden';
+  }
+  var x = document.forms["myForm"]["department"].value;
+  if (x == "default") {
+    //alert("Name must be filled out");
+	document.getElementById("ex3").style.visibility='visible';
+    return false;
+  }else{
+	document.getElementById("ex3").style.visibility='hidden';
+  }
+  var x = document.forms["myForm"]["job-type"].value;
+  if (x == "default") {
+    //alert("Name must be filled out");
+	document.getElementById("ex4").style.visibility='visible';
+    return false;
+  }else{
+	document.getElementById("ex4").style.visibility='hidden';
+  }
+  var x = document.forms["myForm"]["text"].value;
+  if (x == "") {
+    //alert("Name must be filled out");
+	document.getElementById("ex5").style.visibility='visible';
+    return false;
+  }else{
+	document.getElementById("ex5").style.visibility='hidden';
+}
+var x = document.forms["myForm"]["location"].value;
+  if (x == "") {
+    //alert("Name must be filled out");
+	document.getElementById("ex6").style.visibility='visible';
+    return false;
+  }else{
+	document.getElementById("ex6").style.visibility='hidden';
+  }
+  var x = document.forms["myForm"]["shift"].value;
+  if (x == "default") {
+    //alert("Name must be filled out");
+	document.getElementById("ex7").style.visibility='visible';
+    return false;
+  }else{
+	document.getElementById("ex7").style.visibility='hidden';
+  }
+  var x = document.forms["myForm"]["vacancies"].value;
+  if (x == "") {
+    //alert("Name must be filled out");
+	document.getElementById("ex8").style.visibility='visible';
+    return false;
+  }else{
+	document.getElementById("ex8").style.visibility='hidden';
+  }
+var x = document.forms["myForm"]["join"].value;
+  if (x == "") {
+    //alert("Name must be filled out");
+	document.getElementById("ex9").style.visibility='visible';
+    return false;
+  }else{
+	document.getElementById("ex9").style.visibility='hidden';
+  }
+  var x = document.forms["myForm"]["last"].value;
+  if (x == "") {
+    //alert("Name must be filled out");
+	document.getElementById("ex10").style.visibility='visible';
+    return false;
+  }else{
+	document.getElementById("ex10").style.visibility='hidden';
+  }
+	alert("Job added successfully");
+	$.ajax({
+			type:'POST',
+			url:'form_control.php',
+			data:$('#form-id').serialize(),
+	});
+	var x1 = document.getElementById('select3');
+	x1.value='default';
+	var x2 = document.getElementById('textarea');
+	x2.value='';
+	var x3 = document.getElementById('loc');
+	x3.value='';
+	var x4 = document.getElementById('select4');
+	x4.value='';
+	var x5 = document.getElementById('vac');
+	x5.value='';
+	var x6 = document.getElementById('date1');
+	x6.value='';
+	var x7 = document.getElementById('date2');
+	x7.value='';
+	//	var form = document.getElementById('frmBox').reset();
+	return false;
 }
 function resetForm(){
+	document.getElementById("ex1").style.visibility='hidden';
+	document.getElementById("ex2").style.visibility='hidden';
+	document.getElementById("ex3").style.visibility='hidden';
+	document.getElementById("ex4").style.visibility='hidden';
+	document.getElementById("ex5").style.visibility='hidden';
+	document.getElementById("ex6").style.visibility='hidden';
+	document.getElementById("ex7").style.visibility='hidden';
+	document.getElementById("ex8").style.visibility='hidden';
+	document.getElementById("ex9").style.visibility='hidden';
+	document.getElementById("ex10").style.visibility='hidden';
+
 	document.getElementById("form-id").reset();
 }
 function saveForm() {
@@ -473,7 +592,37 @@ var x = document.forms["myForm"]["join"].value;
   }else{
 	document.getElementById("ex10").style.visibility='hidden';
   }
-  	document.getElementById("form-id").submit();
+  
+	$.ajax({
+			type:'POST',
+			url:'form_control.php',
+			data:$('#form-id').serialize(),
+	});
+	var y1 = document.getElementById('business-name');
+	y1.value='';
+	var y1 = document.getElementById('select1');
+	y1.value='default';
+	var y1 = document.getElementById('select2');
+	y1.value='default';
+	var x1 = document.getElementById('select3');
+	x1.value='default';
+	var x2 = document.getElementById('textarea');
+	x2.value='';
+	var x3 = document.getElementById('loc');
+	x3.value='';
+	var x4 = document.getElementById('select4');
+	x4.value='';
+	var x5 = document.getElementById('vac');
+	x5.value='';
+	var x6 = document.getElementById('date1');
+	x6.value='';
+	var x7 = document.getElementById('date2');
+	x7.value='';
+	//	var form = document.getElementById('frmBox').reset();
+	alert("Contents saved successfully");
+	return false;
+	
+  	//document.getElementById("form-id").submit();
 
   }
 
